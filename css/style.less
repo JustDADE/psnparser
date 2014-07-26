@@ -1,0 +1,52 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+
+@baseColor: #000;
+
+html,body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#gamestable {
+  width: 100%;
+  min-width: 960px;
+  border-collapse: collapse;
+  thead {
+    background: linear-gradient(to bottom, #3b6793, #3c6c9e);
+    color: #fff;
+    text-shadow: 1px 1px 1px #375e86;
+    tr {
+      td {
+        text-align: center;
+        padding: 10px 5px;
+        &:nth-child(1) {
+          text-align: left;
+          color: #fff;
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        text-align: center;
+        padding: 10px 5px;
+        img {
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 10px;
+          background: #375e86;
+          border-radius: 3px;
+        }
+        &:nth-child(1) {
+          text-align: left;
+          color: #5f820d;
+        }
+      }
+      &:nth-child(even) {
+        background: #f9f9f9;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="PlayStation">
+<head>
+    <title>PlayStation Game Progress</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/sortable-theme-bootstrap.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="js/sortable.min.js"></script>
+    <script src="js/app.js"></script>
+
+</head>
+<body>
+    <header>
+        Something
+    </header>
+
+    <div class="content">
+        <table id="gamestable" ng-controller="gamesList" data-sortable>
+            <thead>
+            <tr>
+                <td ng-click="predicate = 'title'; reverse=!reverse">Title:</td>
+                <td ng-click="predicate = 'progress'; reverse=!reverse">Progress:</td>
+                <td ng-click="predicate = 'trophies.achieved'; reverse=!reverse">Achieved:</td>
+                <td ng-click="predicate = 'trophies.total'; reverse=!reverse">Total:</td>
+                <td ng-click="predicate = 'trophies.gold'; reverse=!reverse">Gold:</td>
+                <td ng-click="predicate = 'trophies.silver'; reverse=!reverse">Silver:</td>
+                <td ng-click="predicate = 'trophies.bronze'; reverse=!reverse">Bronze:</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="game in games | orderBy:predicate:reverse">
+                <td>
+                    <img src="{{ game.image }}" alt="{{ game.title }}" />
+                    {{ game.title }}
+                </td>
+                <td>{{ game.progress }}%</td>
+                <td>{{ game.trophies.achieved }}</td>
+                <td>{{ game.trophies.total }}</td>
+                <td>{{ game.trophies.gold }}</td>
+                <td>{{ game.trophies.silver }}</td>
+                <td>{{ game.trophies.bronze }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
